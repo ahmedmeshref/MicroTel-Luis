@@ -1,0 +1,135 @@
+
+> LUIS application information
+> !# @app.name = MicroTel
+> !# @app.versionId = 0.1
+> !# @app.culture = en-us
+> !# @app.luis_schema_version = 7.0.0
+> !# @app.tokenizerVersion = 1.0.0
+
+
+> # Intent definitions
+
+# None
+
+
+# UserAction
+
+
+@ intent UserAction usesFeature userInfo
+
+> # Entity definitions
+
+@ ml productReview
+    - @ ml description usesFeature description
+    - @ ml product usesFeature products
+
+
+@ ml singlePackageInfo
+    - @ ml amount usesFeature number
+    - @ ml unit usesFeature units
+
+
+@ ml userInfo
+    - @ action action
+    - @ personName fName
+    - @ personName lName
+    - @ datetimeV2 birthDate
+    - @ geographyV2 address
+    - @ nationalID nationalID
+
+
+
+> # PREBUILT Entity definitions
+
+@ prebuilt datetimeV2
+
+@ prebuilt geographyV2
+
+@ prebuilt money
+
+@ prebuilt number
+
+@ prebuilt personName
+
+@ prebuilt phonenumber
+
+
+> # Phrase list definitions
+
+@ phraselist products(interchangeable) disabledForAllModels = 
+	- network,internet,quotas
+
+
+> # List entities
+
+@ list action = 
+	- singup :
+		- sign up
+		- register
+	- forget :
+		- can’t remember
+		- lost
+
+
+@ list description = 
+	- bad :
+		- bad service
+		- poor
+		- not reflecting
+		- not working
+
+
+@ list extraFullPackage = 
+	- Plus Package :
+		- Plus pack
+		- Plus-Package
+		- plus
+	- Premium Plus Package :
+		- Premium Plus pack
+		- Premium Package
+		- Premium-Package
+
+
+@ list tier = 
+	- standard package :
+		- Standard
+		- standard pack
+		- standard-package
+	- Premium Package :
+		- Premium
+		- Premium-Package
+		- Premium pack
+	- VIP Package :
+		- VIP
+		- vip
+		- vip-package
+		- vip pack
+
+
+@ list units = 
+	- gigabyte :
+		- giga byte
+		- giga-byte
+		- giga
+		- GB
+	- megabyte :
+		- mega byte
+		- mega
+		- MB
+		- mega-byte
+	- minutes :
+		- min
+		- mins
+	- text messages :
+		- messages
+		- sms
+
+
+> # RegEx entities
+
+@ regex creditCardNumber = /\d{4}[\s\-]*\d{4}[\s\-]*\d{4}[\s\-]*\d{4}/
+@ regex nationalID = /^[1-4]{1}[0-9]{4}/
+
+> # Pattern.Any entities
+
+@ patternany songName
