@@ -16,9 +16,9 @@
 
 # UserAction
 - can i {@userInfo={@action=get} a line, i am {@name={@fName=mohamed}} from {@address={@city=paris}} my national id is {@nationalID=12758}}, i need it asap
-- can i {@userInfo={@action=purchase} a vip line today? i am john i’m from alexandria my national id is 12758}
+- can i {@userInfo={@action=purchase} a vip line today? i am {@name={@fName=john}} i’m from {@address={@city=alexandria}} my national id is {@nationalID=12758}}
 - can you {@userInfo={@action=sign me up} to a vip line today}?
-- {@userInfo=get a new vip line}
+- {@userInfo={@action=get} a new vip line}
 - i am {@userInfo={@name={@fName=khaled} {@lName=mahr}} living in {@address={@streetNumber=11} {@streetName=margany street}, {@district=5th settlement}, {@city=new cairo}, {@country=egypt}}. i was born on {@birthDate=18th of september 1995} and would like to {@action=purchase} a new line.}
 - i am {@userInfo=meshref from {@address=cairo, egypt}. i would like to {@action=get} a new standard line}.
 - i want to {@userInfo={@action=register} a new standard line, my name is {@name={@fName=mahmoud} {@lName=hamdy}}, currently living in {@address={@city=sohag}, {@country=egypt}}}
@@ -29,7 +29,7 @@
 - i’d like to {@userInfo={@action=sign up} for a new standard line}.
 - my {@userInfo=name is {@name={@fName=william} {@lName=heart}}. please {@action=sign me up} for a new line.}
 - {@userInfo={@action=register} a new premium line {@nationalID=16764}}
-- {@userInfo={@birthDate=register} new line}
+- {@userInfo={@action=register} new line}
 - {@userInfo={@action=sign me up} for a premium line. i am {@name={@fName=ahmed} {@lName=meshref}} living in {@address=el feda street, dokki}}.
 - {@userInfo={@action=sign up} for a new line}
 - {@userInfo={@action=sign up} for a standard line. my name is {@name={@fName=john} {@lName=gamal}} and i was born on {@birthDate=11th of july 2000}. currently, i live in {@address={@streetNumber=11} {@streetName=shohada street}, {@district=maddi}, {@country=egypt}}. my national id is {@nationalID=28745}}
@@ -59,9 +59,9 @@
         - @ geographyV2 city
         - @ geographyV2 country usesFeature Country
     - @ nationalID nationalID
-    - @ ml name
-        - @ personName lName
-        - @ personName fName
+    - @ ml name usesFeature personName
+        - @ ml lName
+        - @ ml fName
 
 
 
@@ -101,6 +101,7 @@
 	- forget :
 		- can’t remember
 		- lost
+		- restore
 
 
 @ list description = 
